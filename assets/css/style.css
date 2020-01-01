@@ -1,0 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    text-align: center;
+    align-self: center;
+}
