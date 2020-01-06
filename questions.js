@@ -14,17 +14,15 @@ let questions = [
         choices: ["True", "False"],
         answer: "True"
     },
-    // {
-    //     title: 
-    //     choices:
-    //     answer: 
-    // },
-    // {
-    //     title:  
-    //     choices: 
-    //     answer: 
-    // },
-
-console.log("testing from question.js")
+    {
+        title: "Inside which HTML element is javascript inserted?",
+        choices:["<scripting>", "<js>", "<script>", "<javascript>"],
+        answer: "<script>"
+    },
+    {
+        title: "Where is the correct place to insert JavaScript?",
+        choices: ["Both the <head> section and the <body> section are correct", "The <body> section", "The <head> section"],
+        answer: "Both the <head> section and the <body> section are correct"
+    }
 
 ]

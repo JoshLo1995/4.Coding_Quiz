@@ -1,3 +1,8 @@
+* {
+    background-color: #355c7d;
+    color: white;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -6,4 +11,60 @@ body {
 button {
     text-align: center;
     align-self: center;
+}
+
+#rightOrWrong {
+    text-align: center;
+    float: left;
+}
+
+#buttons {
+    margin: 0 auto; 
+    text-align: center;
+    width: 150px;
+    color: #FC7280;
+    white-space: normal;
+
+}
+
+.btn {
+    background-color: #FC7280;
+    border: 2px solid #6c5b7b;
+    white-space: normal;
+}
+
+.btn:hover {
+    background-color: #F8B195;
+}
+s
+
+a {
+    float: left;
+}
+
+#everything {
+    width: 65%;
+    float: left;
+    border: 8px solid #c06c84;
+    border-radius: 10px;
+    margin: auto;
+    padding: 10px;
+
+}
+
+#inputField {
+    background-color: #C06C84;
+    border-radius: 3px;
+    border: 2px solid #f8b195;
+    color: white;
+    height: inherit;
+}
+
+#question {
+    text-align: center;
+}
+
+::placeholder {
+    color: white;
+    text-align: center;
 }
