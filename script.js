@@ -1,13 +1,6 @@
 $(document).ready(function() {
     init();
-    // Highscores eventlistener
-    $("#viewHighScores").on("click", function() {
-        scoreScreen();
-    });
-    // Button eventlistener
-    $('#buttons').click(function() {
-        next();
-    });
+
 });
 
 function init() {
@@ -25,6 +18,15 @@ function init() {
 
     $("#question").text("Coding Quiz Challenge");
     $("#main-content").text("Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!");
+
+    // Highscores eventlistener
+    $("#viewHighScores").on("click", function() {
+        scoreScreen();
+    });
+    // Button eventlistener
+    $('#buttons').click(function() {
+        next();
+    });
 }
 
 function counterdowner() {
@@ -78,6 +80,7 @@ function next(answer) {
         console.log("Out of questions"); 
         this.score = this.correct * this.time;
         scoreScreen();   
+        leaderboard();
     } else {
         deleteButtons();
         createButtons();
@@ -128,21 +131,39 @@ function unpack(obj, dest) {
     }
 }
 
-function leaderboard() {
-    var scores;
-    for (let i = 0; i < window.localStorage.length; i++) {
-        scores+= [window.localStorage.getItem(this.name)]
+async function leaderboard() {
+    let names = [];
+    let scores = [];
+
+    const storage = Object.keys(localStorage);
+    for (const leader of storage) {
+        scores.push(localStorage.getItem(leader));
+        names.push(localStorage.key(leader));
+        debugger;
     }
+    // console.log(storage);
+    // for (let i = 0; i <= window.localStorage.length; i++) {
+    //     scores.push(JSON.parse(window.localStorage.getItem(window.name)));
+    // }
+    var dict = {};
+
+    for (let index = 0; index <= scores.length; index++) {
+        const element = scores[index];
+
+        dict[names[index]] = element; 
+        
+    }
+    
     $("#main-content").text(scores);
 }
 
 // Display the score screen at the end of the game, or when the 'view highscores' button is clicked
 function scoreScreen() {
-    //Need to clear timerfunction but IT WON'T
+    this.score = this.correct * this.time;
     clearInterval(this.timerFunction);
 
     $('#question').text("High scores");
-    $("#main-content").text("Your score is " + this.score); 
+    $("#question").text("Your score is " + this.score); 
 
     $("#buttons").empty();
     $("#everything").append(
@@ -171,8 +192,9 @@ function scoreScreen() {
 
             this.name = $("#inputField").val();
             $("#inputField").val("Score Saved");
-            console.log(this.name + " " + this.score);
-            window.localStorage.setItem(this.name, this.score);
+            console.log(this.name + " " + window.score);
+            
+            window.localStorage.setItem(this.name, window.score);
         })
     } 
 
